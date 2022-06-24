@@ -1,5 +1,5 @@
-<div class="p-4 w-full inline-flex justify-center">
+<div class="py-4 w-full container mx-auto">
   <button type="button" class="photon-logo">
-    <span>P</span>
-  </button>  
+    <span>Ph</span>
+  </button>
 </div>
