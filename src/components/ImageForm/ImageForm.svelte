@@ -1,6 +1,5 @@
 <script type="text/javascript">
-  import CloudUpload from '../../icons/cloud-upload.svelte';
-  import ExclamationIcon from '../../icons/exclamation.svelte';
+  import { UploadIcon, ExclamationIcon } from '../Icons';
   import { createImageDataURL } from './ImageForm.utils';
   import { noop } from '../../App.constants';
 
@@ -44,7 +43,7 @@
     class:border-gray-400="{error === null}"
   >
     <div class="mb-6 flex justify-center">
-      <CloudUpload className="w-12 h-12" />
+      <UploadIcon className="w-12 h-12" />
     </div>
     <div class="text-center mb-6">
       <p class="text-lg">Drag and Drop</p>

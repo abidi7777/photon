@@ -2,7 +2,7 @@
   import RangeSlider from 'svelte-range-slider-pips';
 
   import { FILTER_TYPES_AS_ARRAY } from './Filter.constants';
-  import { isValidCSS, toCSSFilterString } from './Filter.utils';
+  import { toCSSFilterString } from './Filter.utils';
   import { noop } from '../../App.constants';
 
   const appliedFilters = {};
@@ -11,19 +11,9 @@
 
   export let onFilterChange = noop;
 
-  $: if (selectedFilter.type !== 'text') {
+  $: {
     const [filterValue] = filterValues;
-
     appliedFilters[selectedFilter.attr] = filterValue;
-
-    onFilterChange(toCSSFilterString(appliedFilters));
-  }
-  $: if (selectedFilter.type === 'text') {
-    const cssFilterStr = `${selectedFilter.attr}(${filterValues[0]})`;
-
-    appliedFilters[selectedFilter.attr] = isValidCSS('filter', cssFilterStr)
-      ? filterValues[0]
-      : selectedFilter.defaultValue;
 
     onFilterChange(toCSSFilterString(appliedFilters));
   }
@@ -39,9 +29,8 @@
 </script>
 
 <div class="flex flex-col">
-  <div class="max-w-md mx-auto flex-1 w-full">
-    {#if selectedFilter.type === 'range'}
-      <RangeSlider
+  <div class="max-w-md mx-auto flex-1 w-full text-xs">
+    <RangeSlider
         id="color-pips"
         bind:values={filterValues}
         min={selectedFilter.min}
@@ -51,17 +40,8 @@
         range="min"
         float
         pips
-        formatter={(v) => `${v}${selectedFilter.unit}`}
+        formatter={(v) => `${v}${selectedFilter.displayUnit}`}
       />
-    {:else if selectedFilter.type === 'text'}
-      <input
-        type="text"
-        placeholder="offset-x offset-y blur-radius color"
-        class="w-full pb-1 outline-none bg-transparent border-0 border-b border-b-black mb-4"
-        on:input={(e) => { filterValues[0] = e.target.value; }}
-      />
-      <span class="italic text-xs">e.g. 16px 16px 10px black</span>
-    {/if}
   </div>
   <ul class="inline-flex justify-between items-center text-xs uppercase w-full h-16 gap-8 overflow-auto shrink-0">
     {#each FILTER_TYPES_AS_ARRAY as filter}

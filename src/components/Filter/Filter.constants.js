@@ -4,9 +4,10 @@ export const FILTER_TYPES = {
     displayName: 'Blur',
     type: 'range',
     min: 0,
-    max: 100,
+    max: 30,
     defaultValue: 0,
     unit: 'px',
+    displayUnit: 'px',
   },
   brightness: {
     attr: 'brightness',
@@ -16,6 +17,7 @@ export const FILTER_TYPES = {
     max: 100,
     defaultValue: 100,
     unit: '%',
+    displayUnit: '%',
   },
   contrast: {
     attr: 'contrast',
@@ -25,15 +27,7 @@ export const FILTER_TYPES = {
     max: 100,
     defaultValue: 100,
     unit: '%',
-  },
-  'drop-shadow': {
-    attr: 'drop-shadow',
-    displayName: 'Drop shadow',
-    type: 'text',
-    min: 0,
-    max: 100,
-    defaultValue: '0 0 0 transparent',
-    unit: '',
+    displayUnit: '%',
   },
   grayscale: {
     attr: 'grayscale',
@@ -43,6 +37,7 @@ export const FILTER_TYPES = {
     max: 100,
     defaultValue: 0,
     unit: '%',
+    displayUnit: '%',
   },
   'hue-rotate': {
     attr: 'hue-rotate',
@@ -52,6 +47,7 @@ export const FILTER_TYPES = {
     max: 100,
     defaultValue: 0,
     unit: 'deg',
+    displayUnit: '°',
   },
   invert: {
     attr: 'invert',
@@ -61,6 +57,7 @@ export const FILTER_TYPES = {
     max: 100,
     defaultValue: 0,
     unit: '%',
+    displayUnit: '%',
   },
   opacity: {
     attr: 'opacity',
@@ -70,6 +67,7 @@ export const FILTER_TYPES = {
     max: 100,
     defaultValue: 100,
     unit: '%',
+    displayUnit: '%',
   },
   saturate: {
     attr: 'saturate',
@@ -77,8 +75,9 @@ export const FILTER_TYPES = {
     type: 'range',
     min: 0,
     max: 100,
-    defaultValue: 0,
+    defaultValue: 100,
     unit: '%',
+    displayUnit: '%',
   },
   sepia: {
     attr: 'sepia',
@@ -88,6 +87,7 @@ export const FILTER_TYPES = {
     max: 100,
     defaultValue: 0,
     unit: '%',
+    displayUnit: '%',
   },
 };
 

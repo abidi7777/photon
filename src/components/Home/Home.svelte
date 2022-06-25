@@ -7,7 +7,7 @@
 
 <div>
   {#if dataURL}
-    <Editor img={dataURL} />
+    <Editor img={dataURL} on:close={() => { dataURL = null; }} />
   {:else}
     <div class="mb-12 text-center">
       <p class="text-xl mb-4">A simple Web based Photo editor.</p>
