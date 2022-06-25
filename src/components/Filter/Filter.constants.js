@@ -32,7 +32,7 @@ export const FILTER_TYPES = {
     type: 'text',
     min: 0,
     max: 100,
-    defaultValue: 0,
+    defaultValue: '0 0 0 transparent',
     unit: '',
   },
   grayscale: {

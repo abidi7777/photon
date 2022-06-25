@@ -3,9 +3,9 @@
 
   import CloudUpload from '../../icons/cloud-upload.svelte';
   import ExclamationIcon from '../../icons/exclamation.svelte';
-  import createImageDataURL from '../../utils/createImageDataURL';
+  import { createImageDataURL } from './ImageForm.utils';
+  import { noop } from '../../App.constants';
 
-  const noop = () => {};
   let error = null;
   let isVerifying = false;
 
