@@ -9,7 +9,7 @@
 
 <div class="flex flex-col editor gap-6">
   <div class="overflow-hidden flex-1 flex items-center justify-center">
-    <div class="h-auto lg:h-full max-h-[100%] mx-auto overflow-hidden flex items-center justify-center">
+    <div class="h-auto landscape:h-full md:h-full max-h-[100%] mx-auto overflow-hidden flex items-center justify-center">
       <img src={img} alt="ready for editing" class="h-auto max-h-[100%] mx-auto" style:--filter="{cssFilterStr}" />
     </div>
   </div>
