@@ -31,26 +31,28 @@
 <div class="flex flex-col">
   <div class="max-w-md mx-auto flex-1 w-full text-xs">
     <RangeSlider
-        id="color-pips"
-        bind:values={filterValues}
-        min={selectedFilter.min}
-        max={selectedFilter.max}
-        first="label"
-        last="label"
-        range="min"
-        float
-        pips
-        formatter={(v) => `${v}${selectedFilter.displayUnit}`}
-      />
+      id="color-pips"
+      bind:values={filterValues}
+      min={selectedFilter.min}
+      max={selectedFilter.max}
+      first="label"
+      last="label"
+      range="min"
+      float
+      pips
+      formatter={(v) => `${v}${selectedFilter.displayUnit}`}
+    />
   </div>
-  <ul class="inline-flex justify-between items-center text-xs uppercase w-full h-16 gap-8 overflow-auto shrink-0">
+  <ul
+    class="inline-flex justify-between items-center text-xs uppercase w-full h-16 gap-8 overflow-auto shrink-0"
+  >
     {#each FILTER_TYPES_AS_ARRAY as filter}
       <li>
         <button
           type="button"
           class="btn"
-          class:btn-info-dark="{selectedFilter.attr === filter.attr}"
-          class:btn-info-light="{selectedFilter.attr !== filter.attr}"
+          class:btn-info-light={selectedFilter.attr === filter.attr}
+          class:bg-gray-200={selectedFilter.attr !== filter.attr}
           on:click={() => updateSelectedFilter(filter)}
         >
           {filter.displayName}

@@ -3,7 +3,7 @@
   import Home from './components/Home';
 </script>
 
-<main class="px-2">
+<main class="p-2">
   <div>
     <Header />
   </div>

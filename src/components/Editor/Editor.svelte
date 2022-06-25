@@ -21,7 +21,7 @@
 
 <style type="text/css">
   .editor {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 5rem - 1rem);
   }
 
   img {
