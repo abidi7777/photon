@@ -1,6 +1,4 @@
 <script type="text/javascript">
-  import cx from 'classnames';
-
   import CloudUpload from '../../icons/cloud-upload.svelte';
   import ExclamationIcon from '../../icons/exclamation.svelte';
   import { createImageDataURL } from './ImageForm.utils';
@@ -34,23 +32,17 @@
 </script>
 
 <form
-  class={
-    cx(
-      'p-3 border shadow-md max-w-72 md:w-1/2 bg-white border-gray-300 relative mx-auto',
-      { 'text-red-500': error },
-      { 'text-gray-500': !error },
-    )
-  }
+  class="p-3 border shadow-md max-w-72 md:w-1/2 bg-white border-gray-300 relative mx-auto"
+  class:text-red-500="{error !== null}"
+  class:text-gray-500="{error === null}"
   on:dragover|preventDefault|stopPropagation={onDragoverHandler}
   on:drop|preventDefault|stopPropagation={onChangeHandler}
 >
-  <div class={
-    cx(
-      'border border-dashed p-6',
-      { 'border-red-400': error },
-      { 'border-gray-400': !error },
-    )
-  }>
+  <div
+    class="border border-dashed p-6"
+    class:border-red-400="{error !== null}"
+    class:border-gray-400="{error === null}"
+  >
     <div class="mb-6 flex justify-center">
       <CloudUpload className="w-12 h-12" />
     </div>
@@ -61,13 +53,12 @@
       <p class="text-sm italic">or</p>
     </div>
     <div class="flex justify-center">
-      <label for="upload-image" class={
-        cx(
-          'btn cursor-pointer',
-          { 'btn-danger-dark': error },
-          { 'btn-info-dark': !error },
-        )
-      }>
+      <label
+        for="upload-image"
+        class="btn cursor-pointer"
+        class:btn-danger-dark="{error !== null}"
+        class:btn-info-dark="{error === null}"
+      >
         <span>Browse Image</span>
         <input
           type="file" 

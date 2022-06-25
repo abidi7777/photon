@@ -1,6 +1,5 @@
 <script type="text/javascript">
   import RangeSlider from 'svelte-range-slider-pips';
-  import cx from 'classnames';
 
   import { FILTER_TYPES_AS_ARRAY } from './Filter.constants';
   import { isValidCSS, toCSSFilterString } from './Filter.utils';
@@ -20,14 +19,13 @@
     onFilterChange(toCSSFilterString(appliedFilters));
   }
   $: if (selectedFilter.type === 'text') {
-    const [filterValue] = filterValues;
-    const cssFilterStr = `${selectedFilter.attr}(${filterValue})`;
+    const cssFilterStr = `${selectedFilter.attr}(${filterValues[0]})`;
 
-    appliedFilters[selectedFilter.attr] = filterValue;
+    appliedFilters[selectedFilter.attr] = isValidCSS('filter', cssFilterStr)
+      ? filterValues[0]
+      : selectedFilter.defaultValue;
 
-    if (isValidCSS('filter', cssFilterStr)) {
-      onFilterChange(toCSSFilterString(appliedFilters));
-    }
+    onFilterChange(toCSSFilterString(appliedFilters));
   }
 
   const updateSelectedFilter = (filter) => {
@@ -65,18 +63,14 @@
       <span class="italic text-xs">e.g. 16px 16px 10px black</span>
     {/if}
   </div>
-  <ul class="inline-flex justify-between items-center text-xs uppercase w-full h-24 gap-8 overflow-auto shrink-0">
+  <ul class="inline-flex justify-between items-center text-xs uppercase w-full h-16 gap-8 overflow-auto shrink-0">
     {#each FILTER_TYPES_AS_ARRAY as filter}
       <li>
         <button
           type="button"
-          class={
-            cx(
-              'btn',
-              { 'btn-info-dark': selectedFilter.attr === filter.attr },
-              { 'btn-info-light': selectedFilter.attr !== filter.attr },
-            )
-          }
+          class="btn"
+          class:btn-info-dark="{selectedFilter.attr === filter.attr}"
+          class:btn-info-light="{selectedFilter.attr !== filter.attr}"
           on:click={() => updateSelectedFilter(filter)}
         >
           {filter.displayName}
