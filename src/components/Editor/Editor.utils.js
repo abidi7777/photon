@@ -1,17 +1,17 @@
 export const drawImageWithFilters = (img, filter) => new Promise((resolve, reject) => {
-  const { dataURL, type } = img;
+  const { dataURL } = img;
   const offscreenImg = new Image();
   const offscreenCanvas = document.createElement('canvas');
   const ctx = offscreenCanvas.getContext('2d');
 
   offscreenImg.onload = function onload() {
-    offscreenCanvas.width = offscreenImg.width;
-    offscreenCanvas.height = offscreenImg.height;
+    offscreenCanvas.width = this.naturalWidth;
+    offscreenCanvas.height = this.naturalHeight;
     ctx.filter = filter;
 
-    ctx.drawImage(offscreenImg, 0, 0);
+    ctx.drawImage(this, 0, 0, offscreenCanvas.width, offscreenCanvas.height);
 
-    resolve(offscreenCanvas.toDataURL(type));
+    resolve(offscreenCanvas.toDataURL());
   };
   offscreenImg.onerror = (e) => reject(e);
 
