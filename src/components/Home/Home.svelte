@@ -3,12 +3,12 @@
  import Header from '../Header';
  import ImageFrom from '../ImageForm';
 
- let dataURL = null;
+ let img = null;
 </script>
 
 <div>
-  {#if dataURL}
-    <Editor img={dataURL} on:close={() => { dataURL = null; }} />
+  {#if img}
+    <Editor img={img} on:close={() => { img = null; }} />
   {:else}
     <div class="p-2">
       <Header />
@@ -17,7 +17,7 @@
         <p> For now it supports the following <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/filter" target="_blank" class="text-sky-600 hover:underline">CSS Filters</a>.</p>
       </div>
       <div>
-        <ImageFrom onImgChange={(val) => { dataURL = val; }}  />
+        <ImageFrom onImgChange={(data) => { img = data; }}  />
       </div>
     </div>
   {/if}

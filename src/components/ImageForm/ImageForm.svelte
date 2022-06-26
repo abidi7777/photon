@@ -16,9 +16,10 @@
     try {
       isVerifying = true;
 
-      const imgDataURL = await createImageDataURL(img);
+      const dataURL = await createImageDataURL(img);
+      const { type, name } = img;
 
-      onImgChange(imgDataURL);
+      onImgChange({ type, name, dataURL });
     } catch (ex) { error = ex.message; } finally { isVerifying = false; }
 
     e.target.value = '';

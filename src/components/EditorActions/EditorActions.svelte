@@ -26,7 +26,7 @@
   <li>
     <button
       type="button"
-      class="btn circle btn-danger-dark text-slate-50 rounded-full min-w-0 min-h-0 w-auto h-auto"
+      class="btn circle btn-danger-dark text-slate-50 rounded-full min-w-0 min-h-0 w-auto h-auto hover:scale-110"
       on:click={onCloseHanlder}
     >
       {#if confirm}
@@ -39,7 +39,7 @@
   <li>
     <button
       type="button"
-      class="btn circle btn-primary text-slate-50 rounded-full min-w-0 min-h-0"
+      class="btn circle btn-info-dark text-slate-50 rounded-full min-w-0 min-h-0 hover:scale-110"
       on:click={onDownload}
     >
       <DownloadIcon className="w-4 h-4" />
