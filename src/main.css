@@ -5,8 +5,13 @@
 @tailwind utilities;
 
 @layer components {
-  .photon-logo {
-    @apply logo;
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 

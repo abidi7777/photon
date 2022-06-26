@@ -1,12 +1,8 @@
 <script type="text/javascript">
-  import Header from './components/Header';
   import Home from './components/Home';
 </script>
 
-<main class="p-2">
-  <div>
-    <Header />
-  </div>
+<main>
   <div class="container mx-auto">
     <Home />
   </div>

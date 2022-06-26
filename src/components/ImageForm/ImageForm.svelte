@@ -1,5 +1,5 @@
 <script type="text/javascript">
-  import { UploadIcon, ExclamationIcon } from '../Icons';
+  import { UploadIcon, ExclamationIcon, Spinner } from '../Icons';
   import { createImageDataURL } from './ImageForm.utils';
   import { noop } from '../../App.constants';
 
@@ -31,7 +31,7 @@
 </script>
 
 <form
-  class="p-3 border shadow-md max-w-72 md:w-1/2 bg-white border-gray-300 relative mx-auto"
+  class="p-3 border shadow-md max-w-xs bg-white border-gray-300 relative mx-auto"
   class:text-red-500="{error !== null}"
   class:text-gray-500="{error === null}"
   on:dragover|preventDefault|stopPropagation={onDragoverHandler}
@@ -76,9 +76,9 @@
       </div>
     {/if}
     {#if isVerifying}
-      <div class="absolute w-full h-full flex flex-col items-center justify-center bg-slate-50 bg-opacity-90 top-0 left-0 text-sm md:text-base">
-        <span>Optimizing the image for your browser,</span>
-        <span>Please wait...</span> 
+      <div class="absolute w-full h-full flex gap-2 items-center justify-center bg-slate-50 bg-opacity-90 top-0 left-0 text-sm md:text-base">
+        <span>Optimizing</span>
+        <Spinner className="animate-spin" />
       </div>
     {/if}
   </div>

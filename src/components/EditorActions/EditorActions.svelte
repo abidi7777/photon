@@ -37,7 +37,11 @@
     </button>
   </li>
   <li>
-    <button type="button" class="btn circle  btn-primary text-slate-50 rounded-full min-w-0 min-h-0" on:click={onDownload}>
+    <button
+      type="button"
+      class="btn circle btn-primary text-slate-50 rounded-full min-w-0 min-h-0"
+      on:click={onDownload}
+    >
       <DownloadIcon className="w-4 h-4" />
     </button>
   </li>
